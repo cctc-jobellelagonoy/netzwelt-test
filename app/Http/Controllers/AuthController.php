@@ -50,4 +50,10 @@ class AuthController extends Controller
             return back()->withErrors(['error' => $errorMessage])->withInput();
         }
     }
+
+    public function logout(Request $request)
+    {
+        session()->flush();
+        return redirect('account/login');
+    }
 }
