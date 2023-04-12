@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/account/login', [AuthController::class, 'index'])->name('login');
+Route::post('/account/login', [AuthController::class, 'signin']);
+Route::get('/account/logout', [AuthController::class, 'logout'])->middleware('apiauth');
+
+Route::get('/home/index', [HomeController::class, 'index'])->name('home');
 Route::get('/', function () {
-    return 'Welcome!';
+    return redirect('home');
 });
+
+Route::get('/home', function () {
+    return redirect('/home/index');
+});
+
+Route::get('/home/territories', [HomeController::class, 'getAll']);
