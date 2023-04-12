@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 class AuthController extends Controller
 {
     public function index(){
+        if(null !== session('user')){
+            return redirect('home');
+        }
         return view('login');
     }
 
