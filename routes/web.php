@@ -16,7 +16,7 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/account/login', [AuthController::class, 'index'])->name('login');
 Route::post('/account/login', [AuthController::class, 'signin']);
-Route::get('/account/logout', [AuthController::class, 'logout']);
+Route::get('/account/logout', [AuthController::class, 'logout'])->middleware('apiauth');
 
 Route::get('/home/index', [HomeController::class, 'index'])->name('home');
 Route::get('/', function () {
