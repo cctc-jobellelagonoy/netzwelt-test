@@ -26,3 +26,5 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return redirect('/home/index');
 });
+
+Route::get('/home/territories', [HomeController::class, 'getAll']);

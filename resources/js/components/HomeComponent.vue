@@ -6,7 +6,7 @@
                     <div class="card-header">Home Component</div>
 
                     <div class="card-body">
-                        Home
+                        <territories-component></territories-component>
                     </div>
                 </div>
             </div>
