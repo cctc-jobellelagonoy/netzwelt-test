@@ -14,9 +14,14 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', function () {
-    return 'Welcome!';
-});
-
 Route::get('/account/login', [AuthController::class, 'index'])->name('login');
 Route::post('/account/login', [AuthController::class, 'signin']);
+
+Route::get('/home/index', [HomeController::class, 'index'])->name('home');
+Route::get('/', function () {
+    return redirect('home');
+});
+
+Route::get('/home', function () {
+    return redirect('/home/index');
+});
